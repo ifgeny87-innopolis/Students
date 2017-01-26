@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="roleService" class="ru.studen.impl.RoleServiceClient">
+        <property name="roleService" ref="remoteRoleService"/>
+    </bean>
+
+    <bean id="remoteRoleService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean" autowire="byType">
+        <property name="serviceUrl" value="rmi://localhost:12099/RoleService"/>
+        <property name="serviceInterface" value="ru.studen.services.IRoleService"/>
+    </bean>
+
+    <!-- Context scan -->
+    <context:component-scan base-package="ru.studen"/>
+    <context:component-scan base-package="ru.studen.controllers"/>
+    <context:component-scan base-package="ru.studen.services"/>
+
+    <context:annotation-config/>
+</beans>
