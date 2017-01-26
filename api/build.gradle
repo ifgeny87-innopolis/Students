@@ -1,0 +1,49 @@
+group 'innopolis'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.slf4j:slf4j-log4j12:1.7.21'
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.springframework:spring-test:4.3.5.RELEASE'
+
+    // Hibernate framework
+    compile 'org.hibernate:hibernate-core:5.2.5.Final'
+
+    // Mysql database driver
+    compile 'mysql:mysql-connector-java:6.0.5'
+
+    // Spring
+    compile 'org.springframework:spring-core:4.3.5.RELEASE'
+    compile 'org.springframework:spring-context:4.3.5.RELEASE'
+    compile 'org.springframework:spring-web:4.3.5.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.3.5.RELEASE'
+    compile 'org.springframework:spring-jdbc:4.3.5.RELEASE'
+    compile 'org.springframework:spring-orm:4.3.5.RELEASE'
+
+    // Spring Data
+    compile 'org.springframework.data:spring-data-commons:1.12.5.RELEASE'
+    compile 'org.springframework.data:spring-data-jpa:1.10.6.RELEASE'
+
+    // Apache DBCP
+    compile 'org.apache.commons:commons-dbcp2:2.1'
+
+    // else
+    compile "jstl:jstl:1.1.2";
+    compile "com.google.code.gson:gson:2.7";
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1';
+    compile "org.apache.taglibs:taglibs-standard-jstlel:1.2.5";
+    compile "org.springframework.security:spring-security-web:4.1.3.RELEASE";
+    compile "org.springframework.security:spring-security-config:4.1.3.RELEASE";
+    compile "org.springframework.security:spring-security-taglibs:4.1.3.RELEASE";
+}
